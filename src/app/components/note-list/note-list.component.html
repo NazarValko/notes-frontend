@@ -1,0 +1,16 @@
+
+<div class="note-list">
+    <h2>Notes</h2>
+    <a href="/create" class="create-note-btn">Create Note</a>
+    <ul>
+        <li *ngFor="let note of notes">
+        <div class="note-details">
+            <h3>{{ note.name }}</h3>
+            <p>{{ note.description }}</p>
+            <small>{{ note.createdAt | date: 'medium' }}</small> 
+        </div>
+        <button class="edit-btn"><a routerLink="/edit/{{note.id}}">Edit</a></button>
+        <button class="delete-btn" (click)="deleteNote(note.id)">Delete</button>
+        </li>
+    </ul>
+</div>
