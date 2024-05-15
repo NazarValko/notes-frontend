@@ -1,14 +1,20 @@
-<div class="note-form">
-    <h2>Create Note</h2>
-    <form (ngSubmit)="submitForm()">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" [(ngModel)]="note.name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea id="description" [(ngModel)]="note.description" name="description" required></textarea>
-      </div>
-      <button type="submit" class="btn">Apply</button>
-    </form>
-  </div>
+<div class="first_body">
+	<div class="note-form">
+		<select class="change-lang block-lang">
+			<option value="en" selected>EN</option>
+			<option value="sp">SP</option>
+	  </select>
+		 <h2>Create Note</h2>
+		 <form (ngSubmit)="submitForm()">
+			<div class="form-group">
+			  <label for="name">Name:</label>
+			  <input type="text" id="name" [(ngModel)]="note.name" name="name" required>
+			</div>
+			<div class="form-group">
+			  <label for="description">Description:</label>
+			  <textarea id="description" [(ngModel)]="note.description" name="description" required></textarea>
+			</div>
+			<button type="submit" class="btn">Apply</button>
+		 </form>
+	  </div>
+</div>

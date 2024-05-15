@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { Note } from '../../models/note';
-import { NotesService } from '../../note-service/notes.service';
+import * as NoteActions from '../../store/actions/note.actions';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { NotesService } from '../../note-service/notes.service';
+import { deleteNote, loadNotes } from '../../store/actions/note.actions';
+import { selectAllNotes } from '../../store/selectors/note.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-note-list',
@@ -13,26 +18,22 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./note-list.component.scss']
 })
 export class NoteListComponent {
-  notes: Note[] = [];
+  notes$: Observable<Note[]>;
 
-  constructor(private notesService: NotesService) {}
-
-  ngOnInit() {
-    this.fetchNotes();
+  constructor(private store: Store<{ notes: Note[] }>, private notesService: NotesService) {
+    this.notes$ = this.store.select(selectAllNotes);
   }
 
-  fetchNotes() {
-    this.notesService.getAllNotes().subscribe({
-      next: (data) => {
-        this.notes = data;
-      },
-      error: (err) => console.error('Error fetching notes', err)
+  ngOnInit() {
+    this.notesService.getAllNotes().subscribe(notes => {
+      this.store.dispatch(NoteActions.loadNotesSuccess({ notes }));
     });
+    this.store.dispatch(loadNotes());
   }
 
   deleteNote(id: number) {
     this.notesService.deleteNote(id).subscribe(() => {
-      this.notes = this.notes.filter(note => note.id !== id);
+      this.store.dispatch(deleteNote({ id }));
     });
   }
 }
