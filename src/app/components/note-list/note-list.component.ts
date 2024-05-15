@@ -9,18 +9,19 @@ import { NotesService } from '../../note-service/notes.service';
 import { deleteNote, loadNotes } from '../../store/actions/note.actions';
 import { selectAllNotes } from '../../store/selectors/note.selector';
 import { Observable } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-note-list',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, RouterModule, TranslateModule],
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.scss']
 })
 export class NoteListComponent {
   notes$: Observable<Note[]>;
 
-  constructor(private store: Store<{ notes: Note[] }>, private notesService: NotesService) {
+  constructor(private store: Store<{ notes: Note[] }>, private notesService: NotesService, private translate: TranslateService) {
     this.notes$ = this.store.select(selectAllNotes);
   }
 
@@ -35,5 +36,11 @@ export class NoteListComponent {
     this.notesService.deleteNote(id).subscribe(() => {
       this.store.dispatch(deleteNote({ id }));
     });
+  }
+
+  changeLanguage(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const lang = target.value;
+    this.translate.use(lang);
   }
 }
