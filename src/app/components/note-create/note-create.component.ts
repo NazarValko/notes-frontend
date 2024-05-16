@@ -7,12 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { NotesService } from '../../note-service/notes.service';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSelectorComponent } from '../../language-selector/language-selector.component';
 
 @Component({
   selector: 'app-note-create',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, TranslateModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, TranslateModule, LanguageSelectorComponent],
   templateUrl: './note-create.component.html',
   styleUrls: ['./note-create.component.scss']
 })
@@ -24,7 +25,6 @@ export class NoteCreateComponent {
     private router: Router,
     private route: ActivatedRoute,
     private notesService: NotesService,
-    private translate: TranslateService
   ) {
     this.route.params.subscribe(params => {
       if (params['id']) {
@@ -47,11 +47,5 @@ export class NoteCreateComponent {
         this.router.navigate(['/']);
       });
     }
-  }
-
-  changeLanguage(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    const lang = target.value;
-    this.translate.use(lang);
   }
 }

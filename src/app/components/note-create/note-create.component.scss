@@ -7,23 +7,6 @@
 	position: absolute;
 }
 
-.block-lang{
-	font-size: 16px;
-	border: none;
-	background-color: transparent;
-	color: #fff;
-	padding: 5px;
-	margin-left: 90%;
-
-	&:active, &:focus  {
-		outline: none;
-	}
-
-	option{
-		background: #33ccff;
-	}
-}
-
 .note-form {
 
     max-width: 600px;

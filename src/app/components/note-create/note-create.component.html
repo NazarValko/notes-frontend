@@ -1,9 +1,6 @@
 <div class="first_body">
 	<div class="note-form">
-	  <select class="change-lang block-lang" (change)="changeLanguage($event)">
-		<option value="en" selected>EN</option>
-		<option value="sp">SP</option>
-	  </select>
+		<app-language-selector></app-language-selector>
 	  <h2>{{ 'CREATE_NOTE' | translate }}</h2>
 	  <form (ngSubmit)="submitForm()">
 		<div class="form-group">

@@ -10,25 +10,8 @@
   color: #fff;
 }
 
-.block-lang{
-	font-size: 16px;
-	border: none;
-	background-color: transparent;
-	color: #fff;
-	padding: 5px;
-	margin-left: 90%;
-
-	&:active, &:focus  {
-		outline: none;
-	}
-
-	option{
-		background: #33ccff;
-	}
-}
-
 .note-list {
-background-color: transparent;
+  background-color: transparent;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
