@@ -35,13 +35,13 @@ ng test
 ## Running End-to-End Tests with Cypress
 Run `ng e2e` in terminal.
 
-Then in opened window choose browser type(default is Chrome).
+Then in opened window choose browser type(default is Chrome).<br />
 ![image](https://github.com/NazarValko/notes-frontend/assets/66695679/aa37a825-ba75-48c2-970b-6bea5d87162b)
 
-After you should see test. Click on it.
+After you should see test. Click on it.<br />
 ![image](https://github.com/NazarValko/notes-frontend/assets/66695679/328015da-8f25-4cb0-becf-f659aa1ffb85)
 
-And finally test is passed.
+And finally test is passed.<br />
 ![image](https://github.com/NazarValko/notes-frontend/assets/66695679/9ba4299a-a7fe-478d-8c09-a4e7630a74d4)
 
 Or you can run it in headless environment(without opening browser)

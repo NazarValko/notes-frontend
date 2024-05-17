@@ -8,7 +8,6 @@ import { NotesService } from '../../note-service/notes.service';
 import { NoteCreateComponent } from './note-create.component';
 import { noteReducer } from '../../store/reducers/note.reducer';
 import { Router, ActivatedRoute } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NoteCreateComponent', () => {
   let component: NoteCreateComponent;
@@ -20,12 +19,11 @@ describe('NoteCreateComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        NoteCreateComponent, // Standalone component should be imported here
+        NoteCreateComponent,
         FormsModule,
         HttpClientTestingModule,
         TranslateModule.forRoot(),
-        StoreModule.forRoot({ notes: noteReducer }),
-        RouterTestingModule
+        StoreModule.forRoot({ notes: noteReducer })
       ],
       providers: [
         NotesService,

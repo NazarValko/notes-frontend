@@ -6,23 +6,26 @@ import { of } from 'rxjs';
 import { NotesService } from '../../note-service/notes.service';
 import { NoteListComponent } from './note-list.component';
 import { noteReducer } from '../../store/reducers/note.reducer';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 describe('NoteListComponent', () => {
   let component: NoteListComponent;
   let fixture: ComponentFixture<NoteListComponent>;
   let notesService: NotesService;
+  let routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        NoteListComponent, // Standalone component should be imported here
+        NoteListComponent,
         HttpClientTestingModule,
         TranslateModule.forRoot(),
-        StoreModule.forRoot({ notes: noteReducer }),
-        RouterTestingModule
+        StoreModule.forRoot({ notes: noteReducer })
       ],
-      providers: [NotesService]
+      providers: [
+        NotesService,
+        { provide: Router, useValue: routerSpy }
+      ]
     }).compileComponents();
   });
 
