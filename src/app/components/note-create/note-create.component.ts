@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { NotesService } from '../../note-service/notes.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguageSelectorComponent } from '../../language-selector/language-selector.component';
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 
 @Component({
   selector: 'app-note-create',

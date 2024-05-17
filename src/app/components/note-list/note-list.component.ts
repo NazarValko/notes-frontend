@@ -10,7 +10,7 @@ import { deleteNote, loadNotes } from '../../store/actions/note.actions';
 import { selectAllNotes } from '../../store/selectors/note.selector';
 import { Observable } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguageSelectorComponent } from '../../language-selector/language-selector.component';
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 
 @Component({
   selector: 'app-note-list',

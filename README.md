@@ -1,27 +1,50 @@
-# NotesFrontend
+# Notes Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## Description
+This project is a frontend application for managing notes, implemented using Angular. It supports creating, retrieving, updating, and deleting notes. The frontend communicates with a REST API
 
-## Development server
+## Backend Repository
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before running you should install and run backend repository. Instructions on installaion can be found here:
+https://github.com/NazarValko/note-backend
 
-## Code scaffolding
+## Setup and Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Clone the repository:
+```bash
+git clone https://github.com/NazarValko/NotesFrontend.git
+cd NotesFrontend
+```
 
-## Build
+### Install the dependencies
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running the Application
+Run this command in terminal in folder of the project. Navigate to `http://localhost:4200/`
+```bash
+ ng serve
+```
 
-## Running unit tests
+## Running the Unit Tests
+```bash
+ng test
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Running End-to-End Tests with Cypress
+Run `ng e2e` in terminal.
 
-## Running end-to-end tests
+Then in opened window choose browser type(default is Chrome).
+![image](https://github.com/NazarValko/notes-frontend/assets/66695679/aa37a825-ba75-48c2-970b-6bea5d87162b)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+After you should see test. Click on it.
+![image](https://github.com/NazarValko/notes-frontend/assets/66695679/328015da-8f25-4cb0-becf-f659aa1ffb85)
 
-## Further help
+And finally test is passed.
+![image](https://github.com/NazarValko/notes-frontend/assets/66695679/9ba4299a-a7fe-478d-8c09-a4e7630a74d4)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Or you can run it in headless environment(without opening browser)
+```bash
+npx cypress run
+```
